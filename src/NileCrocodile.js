@@ -5,6 +5,14 @@ class NileCrocodile extends Crocodile{
   }
 
   eatEgyptian(){
-    
+    return "Je egipcjanina"
+  }
+
+  getInfo(){
+    var myInfo = [];
+    myInfo.push(this.eatFood());
+    myInfo.push(this.drinkWater());
+    myInfo.push(this.eatEgyptian());
+    return myInfo;
   }
 }

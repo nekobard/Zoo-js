@@ -4,7 +4,7 @@ class App{
     while (enclosuresNode.firstChild) {
         enclosuresNode.removeChild(enclosuresNode.firstChild);
     }
-    data.forEach(function(enclosure){
+    data.forEach(function(enclosure, encIndex){
       var enclosureList = document.getElementById('enclosures');
       var enclosureItem = document.createElement("LI");
 
@@ -13,7 +13,7 @@ class App{
       enclosureName.appendChild(enclosureNameText);
       enclosureItem.appendChild(enclosureName);
 
-      enclosure.animals.forEach(function(animal){
+      enclosure.animals.forEach(function(animal, index){
         var animalRow = document.createElement("DIV");
         animalRow.className = 'animal-row';
 
@@ -64,10 +64,30 @@ class App{
         animalRow.appendChild(animalName);
         animalRow.appendChild(speech);
 
+        animalRow.addEventListener('click', function(){
+
+          var popup = document.getElementById('info-popup');
+          popup.style.display = 'block';
+          var popup = document.getElementById('info-list');
+
+          while (popup.firstChild) {
+              popup.removeChild(popup.firstChild);
+          }
+          
+          animal.getInfo().forEach(function(myString){
+            var info = document.createElement("P");
+            var infoText = document.createTextNode(myString);
+            info.appendChild(infoText);
+            popup.appendChild(info);
+          });
+
+        });
+
         enclosureItem.appendChild(animalRow);
       });
 
       enclosureList.insertBefore(enclosureItem, enclosureList.childNodes[0])
     });
   }
+
 }

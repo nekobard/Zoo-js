@@ -7,6 +7,10 @@ html{
   font-size: 2em;
 }
 
+body{
+
+}
+
 .main-title{
   font-size: 3rem;
   font-weight: lighter;
@@ -202,18 +206,24 @@ html{
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 9999;
+  display: none;
 }
 
 .info-popup > div{
   background: rgba(255, 255, 255, 1);
   position: relative;
-  height: 16rem;
   width: 14rem;
   border-radius: 10px;
   left: 50%;
-  top: 50%;
+  top: 10rem;
   margin-left: -7rem;
-  margin-top: -8rem;
-    z-index: 10000;
+  z-index: 10000;
+  padding: 1rem;
+}
+
+.info-popup > div > p{
+  font-family: sans-serif;
+  line-height: 1rem;
+  font-size: 0.75rem;
 }

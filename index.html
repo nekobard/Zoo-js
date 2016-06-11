@@ -24,9 +24,9 @@
 
       </ul>
 
-      <div class="info-popup">
-        <div>
-          
+      <div class="info-popup" id="info-popup">
+        <div id='info-list'>
+
         </div>
       </div>
     </div>
@@ -54,6 +54,11 @@
         app.render(enclosures);
         enclosureInput.value = '';
       }
+    });
+
+    var infoPopup = document.getElementById('info-popup');
+    infoPopup.addEventListener('click', function(){
+      infoPopup.style.display = 'none';
     });
 
 

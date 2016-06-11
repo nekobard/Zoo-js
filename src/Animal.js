@@ -38,11 +38,11 @@ class Animal{
   }
 
   eatFood(){
-    // je
+    return "Je"
   }
 
   drinkWater(){
-    //pije
+    return "Pije"
   }
 
   getInfo(){
