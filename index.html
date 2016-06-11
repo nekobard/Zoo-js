@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
     <link rel="stylesheet" href="style.css">
+    <meta charset='utf-8'>
     <script src="src/Enclosure.js"></script>
     <script src="src/Animal.js"></script>
     <script src="src/Crocodile.js"></script>
@@ -20,33 +21,6 @@
       </div>
 
       <ul class="enclosures" id="enclosures">
-        <!--<li>
-          <h2>Krokodyle</h2>
-          <div class="animal-row">
-            <div class="animal-image">
-              <img src="img/krokodyl-nilowy.jpg" alt="">
-            </div>
-            <div class="animal-name">
-              <span>Krokodyl nilowy Henio</span>
-            </div>
-          </div>
-          <div class="animal-row">
-            <div class="animal-image">
-              <img src="img/krokodyl-amerykanski.jpg" alt="">
-            </div>
-            <div class="animal-name">
-              <span>Krokodyl amerykanski Eryk</span>
-            </div>
-          </div>
-          <div class="animal-row">
-            <div class="animal-image">
-              <img src="img/krokodyl-amerykanski.jpg" alt="">
-            </div>
-            <div class="animal-name">
-              <span>Krokodyl amerykanski Eryk</span>
-            </div>
-          </div>
-        </li>-->
 
       </ul>
     </div>
@@ -69,9 +43,10 @@
     var newEnclosureButton = document.getElementById('newEnclosure');
     newEnclosureButton.addEventListener('click', function(){
       var enclosureInput = document.getElementById('enclosureInput');
-      if(enclosureInput != '' && enclosureInput != null){
-        enclosures.push(new Enclosure(enclosureInput.textContent));
+      if(enclosureInput.value !== '' && enclosureInput.value !== null){
+        enclosures.push(new Enclosure(enclosureInput.value));
         app.render(enclosures);
+        enclosureInput.value = '';
       }
     });
 
