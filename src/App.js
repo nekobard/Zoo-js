@@ -65,7 +65,8 @@ class App{
         animalRow.appendChild(speech);
 
         animalRow.addEventListener('click', function(){
-
+          this.style.background = 'white';
+          this.childNodes[2].style.display = 'none';
           var popup = document.getElementById('info-popup');
           popup.style.display = 'block';
           var popup = document.getElementById('info-list');
@@ -73,7 +74,7 @@ class App{
           while (popup.firstChild) {
               popup.removeChild(popup.firstChild);
           }
-          
+
           animal.getInfo().forEach(function(myString){
             var info = document.createElement("P");
             var infoText = document.createTextNode(myString);
