@@ -161,7 +161,7 @@ html{
   animation-fill-mode: forwards;
   animation-name: size-up;
   animation-duration: 0.5s;
-  animation-delay: 0.1s;
+  animation-delay: 0.12s;
 }
 
 .speech > div:nth-child(3){
@@ -179,18 +179,41 @@ html{
   animation-fill-mode: forwards;
   animation-name: size-up;
   animation-duration: 0.5s;
-  animation-delay: 0.1s;
+  animation-delay: 0.24s;
 }
 
 .speech > div:nth-child(3) > span{
   color: #333;
   font-family: sans-serif;
   font-size: 0.75rem;
-  top: 1rem;
+  top: 1.2rem;
   position: relative;
 }
 
 @keyframes size-up {
     from {transform:scale(0);}
     to {transform:scale(1);}
+}
+
+.info-popup{
+  background: rgba(0, 0, 0, 0.72);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+.info-popup > div{
+  background: rgba(255, 255, 255, 1);
+  position: relative;
+  height: 16rem;
+  width: 14rem;
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  margin-left: -7rem;
+  margin-top: -8rem;
+    z-index: 10000;
 }

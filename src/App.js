@@ -46,7 +46,16 @@ class App{
         speech.appendChild(divCircleTwo);
         var divCircleThree = document.createElement("DIV");
         var divSpan = document.createElement("SPAN");
-        var divSpanText = document.createTextNode('Głodny');
+
+        var hungry = true;
+        var divSpanText = null;
+        if(!animal.isHungry()){
+          divSpanText = document.createTextNode('N & N');
+        } else{
+          divSpanText = document.createTextNode('G & S');
+        }
+
+
         divSpan.appendChild(divSpanText);
         divCircleThree.appendChild(divSpan);
         speech.appendChild(divCircleThree);
