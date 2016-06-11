@@ -73,6 +73,7 @@ html{
   margin-bottom: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  min-height: 4rem;
 }
 
 .enclosures > li > h2{

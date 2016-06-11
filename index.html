@@ -9,13 +9,14 @@
     <script src="src/Crocodile.js"></script>
     <script src="src/NileCrocodile.js"></script>
     <script src="src/AmericanCrocodile.js"></script>
+    <script src="src/App.js"></script>
   </head>
   <body>
     <div class="container">
       <h1 class="main-title">Zoo</h1>
       <div class="my-inputs">
-        <input type="text" class="input-enclosure">
-        <button class="button-enclosure">Nowy wybieg</button>
+        <input type="text" class="input-enclosure" id='enclosureInput'>
+        <button class="button-enclosure" id='newEnclosure'>Nowy wybieg</button>
       </div>
 
       <ul class="enclosures" id="enclosures">
@@ -58,49 +59,22 @@
     enclosures.push(new Enclosure("Krokodyle"));
 
     enclosures[0].animals.push(new NileCrocodile("Heniek"));
-    enclosures[0].animals.push(new NileCrocodile("Basia"));
     enclosures[0].animals.push(new AmericanCrocodile("Czesiek"));
+    enclosures[0].animals.push(new NileCrocodile("Basia"));
+    enclosures[0].animals.push(new AmericanCrocodile("Horacy"));
 
-    enclosures.forEach(function(enclosure){
-      var enclosureList = document.getElementById('enclosures');
-      var enclosureItem = document.createElement("LI");
+    var app = new App();
+    app.render(enclosures);
 
-      var enclosureName = document.createElement("H2");
-      var enclosureNameText = document.createTextNode(enclosure.getName());
-      enclosureName.appendChild(enclosureNameText);
-      enclosureItem.appendChild(enclosureName);
-
-      enclosure.animals.forEach(function(animal){
-        var animalRow = document.createElement("DIV");
-        animalRow.className = 'animal-row';
-
-        var animalImage = document.createElement("DIV");
-        animalImage.className = 'animal-image';
-        var img = document.createElement("IMG");
-
-        if(animal.getAnimalType() == 'Krokodyl nilowy'){
-          img.src = 'img/krokodyl-nilowy.jpg';
-        } else if(animal.getAnimalType() == 'Krokodyl amerykanski'){
-          img.src = 'img/krokodyl-amerykanski.jpg';
-        }
-
-
-        animalImage.appendChild(img);
-
-        var animalName = document.createElement("DIV");
-        animalName.className = 'animal-name';
-        var name = document.createElement("SPAN");
-        var nameText = document.createTextNode(animal.getAnimalType() + " " + animal.getName());
-        name.appendChild(nameText);
-        animalName.appendChild(name);
-
-        animalRow.appendChild(animalImage);
-        animalRow.appendChild(animalName);
-        enclosureItem.appendChild(animalRow);
-      });
-
-      enclosureList.appendChild(enclosureItem);
+    var newEnclosureButton = document.getElementById('newEnclosure');
+    newEnclosureButton.addEventListener('click', function(){
+      var enclosureInput = document.getElementById('enclosureInput');
+      if(enclosureInput != '' && enclosureInput != null){
+        enclosures.push(new Enclosure(enclosureInput.textContent));
+        app.render(enclosures);
+      }
     });
+
 
     </script>
 
