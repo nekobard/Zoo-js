@@ -37,8 +37,24 @@ class App{
         name.appendChild(nameText);
         animalName.appendChild(name);
 
+
+        var speech = document.createElement("DIV");
+        speech.className = 'speech';
+        var divCircleOne = document.createElement("DIV");
+        speech.appendChild(divCircleOne);
+        var divCircleTwo = document.createElement("DIV");
+        speech.appendChild(divCircleTwo);
+        var divCircleThree = document.createElement("DIV");
+        var divSpan = document.createElement("SPAN");
+        var divSpanText = document.createTextNode('Głodny');
+        divSpan.appendChild(divSpanText);
+        divCircleThree.appendChild(divSpan);
+        speech.appendChild(divCircleThree);
+
         animalRow.appendChild(animalImage);
         animalRow.appendChild(animalName);
+        animalRow.appendChild(speech);
+
         enclosureItem.appendChild(animalRow);
       });
 
