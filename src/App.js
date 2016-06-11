@@ -65,15 +65,22 @@ class App{
         animalRow.appendChild(speech);
 
         animalRow.addEventListener('click', function(){
-          this.style.background = 'white';
-          this.childNodes[2].style.display = 'none';
+          //this.style.background = 'white';
+          //this.childNodes[2].style.display = 'none';
+
           var popup = document.getElementById('info-popup');
           popup.style.display = 'block';
+
           var popup = document.getElementById('info-list');
 
           while (popup.firstChild) {
               popup.removeChild(popup.firstChild);
           }
+
+          var iAnimalName = document.createElement("H3");
+          var iAnimalNameText = document.createTextNode(animal.getName());
+          iAnimalName.appendChild(iAnimalNameText);
+          popup.appendChild(iAnimalName);
 
           animal.getInfo().forEach(function(myString){
             var info = document.createElement("P");

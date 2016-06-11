@@ -227,3 +227,11 @@ body{
   line-height: 1rem;
   font-size: 0.75rem;
 }
+
+.info-popup > div > h3{
+  font-family: sans-serif;
+  line-height: 2rem;
+  font-size: 1rem;
+  margin: 0;
+  color: rgb(38, 130, 182);
+}
