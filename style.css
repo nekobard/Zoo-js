@@ -103,6 +103,7 @@ body{
   display: inline-flex;
   padding: 1rem;
   position: relative;
+  width: 20rem;
 }
 
 .animal-row:hover{
@@ -252,4 +253,14 @@ body{
 .inputs-li{
   margin-left: 2rem;
   margin-top: 1rem;
+}
+
+.input-enclosure-animal{
+  border-radius: 10px;
+  border: 1px solid rgb(209, 209, 209);
+  display: inline-block;
+  margin: 0;
+  margin-right: 0.5rem;
+  padding: 0 0.5rem;
+  font-size: 0.5rem;
 }

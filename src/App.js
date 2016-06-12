@@ -12,7 +12,7 @@ class App{
       var enclosureName = document.createElement("H2");
       var enclosureNameText = document.createTextNode(enclosure.getName());
       enclosureName.appendChild(enclosureNameText);
-      enclosureItem.appendChild(enclosureName);
+
 
       var newAnimalDiv = document.createElement("DIV");
       newAnimalDiv.className = 'my-inputs inputs-li';
@@ -61,14 +61,13 @@ class App{
         }
 
         self.render();
-        //this.wypisz();
-        //enclosures[this.key].animals.push(new )
-        //console.log(input.reverse());
+
       });
 
 
       newAnimalDiv.appendChild(newAnimalButton);
-      enclosureItem.appendChild(newAnimalDiv);
+
+
 
 
       enclosure.animals.forEach(function(animal, index){
@@ -147,10 +146,15 @@ class App{
 
         });
 
-        enclosureItem.appendChild(animalRow);
+        //enclosureItem.appendChild(animalRow);
+        enclosureItem.insertBefore(animalRow, enclosureItem.childNodes[0]);
       });
 
-      enclosureList.insertBefore(enclosureItem, enclosureList.childNodes[0])
+      //enclosureItem.appendChild(newAnimalDiv);
+      enclosureItem.insertBefore(newAnimalDiv,enclosureItem.childNodes[0]);
+      enclosureItem.insertBefore(enclosureName,enclosureItem.childNodes[0]);
+      enclosureList.insertBefore(enclosureItem, enclosureList.childNodes[0]);
+      //enclosureItem.appendChild(enclosureName);
     });
   }
 
