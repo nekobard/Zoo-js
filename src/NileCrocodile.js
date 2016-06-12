@@ -11,8 +11,10 @@ class NileCrocodile extends Crocodile{
   getInfo(){
     var myInfo = [];
     myInfo.push(this.eatFood());
+    myInfo.push(this.attackWithRotate());
     myInfo.push(this.drinkWater());
     myInfo.push(this.eatEgyptian());
+    myInfo.push(this.attackFromWater());
     return myInfo;
   }
 }

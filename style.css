@@ -48,6 +48,7 @@ body{
   height: 100%;
   font-size: 0.5rem;
   cursor: pointer;
+  margin-right: 0.5rem;
 }
 
 .button-enclosure:focus{
@@ -263,4 +264,29 @@ body{
   margin-right: 0.5rem;
   padding: 0 0.5rem;
   font-size: 0.5rem;
+}
+
+.input-enclosure-animal:focus{
+  outline: none;
+  border: 1px solid rgb(170, 170, 170);
+}
+
+
+.button-feed{
+  border: none;
+  background:rgb(235, 197, 40);
+  color: white;
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  height: 100%;
+  font-size: 0.5rem;
+  cursor: pointer;
+}
+
+.button-feed:focus{
+  outline: none;
+}
+
+.button-feed:hover{
+  background:rgb(203, 170, 33);
 }

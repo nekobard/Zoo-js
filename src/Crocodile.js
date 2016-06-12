@@ -4,10 +4,10 @@ class Crocodile extends Animal{
   }
 
   attackWithRotate(){
-    //atak
+    return "Atakuje i kręci się"
   }
 
   attackFromWater(){
-    //atak 2
+    return "Atakuje z wody"
   }
 }

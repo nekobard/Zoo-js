@@ -42,7 +42,7 @@ class App{
         for(var i=0; i < input.length; i++){
           array.push(input[i]);
         }
-        //console.log(array.reverse()[this.key].value);
+
         var animalNameData = array.reverse()[this.key].value;
 
         var select = document.querySelectorAll("select");
@@ -54,11 +54,7 @@ class App{
 
         var animalTypeData = array.reverse()[this.key].value;
 
-        if(animalTypeData == 'Krokodyl nilowy'){
-          enclosures[this.key].animals.push(new NileCrocodile(animalNameData));
-        } else if(animalTypeData == 'Krokodyl amerykanski'){
-          enclosures[this.key].animals.push(new AmericanCrocodile(animalNameData));
-        }
+        enclosures[this.key].addAnimal(animalTypeData, animalNameData);
 
         self.render();
 
@@ -67,6 +63,15 @@ class App{
 
       newAnimalDiv.appendChild(newAnimalButton);
 
+      var feedButton = document.createElement("BUTTON");
+      feedButton.className = 'button-feed';
+      feedButton.textContent = 'Nakarm zwierzęta';
+      feedButton.key = encIndex;
+      feedButton.addEventListener('click', function(){
+        enclosures[this.key].feedAnimals();
+        self.render();
+      });
+      newAnimalDiv.appendChild(feedButton);
 
 
 
