@@ -1,10 +1,11 @@
 class App{
-  render(data){
+  render(){
+    var self = this;
     var enclosuresNode = document.getElementById("enclosures");
     while (enclosuresNode.firstChild) {
         enclosuresNode.removeChild(enclosuresNode.firstChild);
     }
-    data.forEach(function(enclosure, encIndex){
+    enclosures.forEach(function(enclosure, encIndex){
       var enclosureList = document.getElementById('enclosures');
       var enclosureItem = document.createElement("LI");
 
@@ -12,6 +13,63 @@ class App{
       var enclosureNameText = document.createTextNode(enclosure.getName());
       enclosureName.appendChild(enclosureNameText);
       enclosureItem.appendChild(enclosureName);
+
+      var newAnimalDiv = document.createElement("DIV");
+      newAnimalDiv.className = 'my-inputs inputs-li';
+      var inputAnimal = document.createElement("INPUT");
+      inputAnimal.type = 'text';
+      inputAnimal.className = 'input-enclosure-animal';
+      inputAnimal.placeholder = 'Wpisz imie np. Cezary';
+      newAnimalDiv.appendChild(inputAnimal);
+      var selectType = document.createElement("SELECT");
+      var typeOne = document.createElement("OPTION");
+      typeOne.value = 'Krokodyl nilowy';
+      typeOne.textContent = 'Krokodyl nilowy';
+      var typeTwo = document.createElement("OPTION");
+      typeTwo.value = 'Krokodyl amerykanski';
+      typeTwo.textContent = 'Krokodyl amerykanski';
+      selectType.appendChild(typeOne);
+      selectType.appendChild(typeTwo);
+      newAnimalDiv.appendChild(selectType);
+      var newAnimalButton = document.createElement("BUTTON");
+      newAnimalButton.className = 'button-enclosure';
+      newAnimalButton.textContent = 'Dodaj zwierze';
+      newAnimalButton.key = encIndex;
+      newAnimalButton.addEventListener('click', function(){
+        var input = document.querySelectorAll(".input-enclosure-animal");
+
+        var array = [];
+        for(var i=0; i < input.length; i++){
+          array.push(input[i]);
+        }
+        //console.log(array.reverse()[this.key].value);
+        var animalNameData = array.reverse()[this.key].value;
+
+        var select = document.querySelectorAll("select");
+
+        array = [];
+        for(var i=0; i < select.length; i++){
+          array.push(select[i]);
+        }
+
+        var animalTypeData = array.reverse()[this.key].value;
+
+        if(animalTypeData == 'Krokodyl nilowy'){
+          enclosures[this.key].animals.push(new NileCrocodile(animalNameData));
+        } else if(animalTypeData == 'Krokodyl amerykanski'){
+          enclosures[this.key].animals.push(new AmericanCrocodile(animalNameData));
+        }
+
+        self.render();
+        //this.wypisz();
+        //enclosures[this.key].animals.push(new )
+        //console.log(input.reverse());
+      });
+
+
+      newAnimalDiv.appendChild(newAnimalButton);
+      enclosureItem.appendChild(newAnimalDiv);
+
 
       enclosure.animals.forEach(function(animal, index){
         var animalRow = document.createElement("DIV");
@@ -65,8 +123,6 @@ class App{
         animalRow.appendChild(speech);
 
         animalRow.addEventListener('click', function(){
-          //this.style.background = 'white';
-          //this.childNodes[2].style.display = 'none';
 
           var popup = document.getElementById('info-popup');
           popup.style.display = 'block';
@@ -98,4 +154,7 @@ class App{
     });
   }
 
+  wypisz(){
+    console.log("Hello")
+  }
 }

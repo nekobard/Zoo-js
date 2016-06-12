@@ -32,6 +32,7 @@
     </div>
 
 
+
     <script>
 
     var enclosures = [];
@@ -44,14 +45,14 @@
     enclosures[0].animals.push(new AmericanCrocodile("Horacy"));
 
     var app = new App();
-    app.render(enclosures);
+    app.render();
 
     var newEnclosureButton = document.getElementById('newEnclosure');
     newEnclosureButton.addEventListener('click', function(){
       var enclosureInput = document.getElementById('enclosureInput');
       if(enclosureInput.value !== '' && enclosureInput.value !== null){
         enclosures.push(new Enclosure(enclosureInput.value));
-        app.render(enclosures);
+        app.render();
         enclosureInput.value = '';
       }
     });
