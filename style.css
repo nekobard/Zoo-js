@@ -192,9 +192,12 @@ body{
 .speech > div:nth-child(3) > span{
   color: #333;
   font-family: sans-serif;
-  font-size: 0.75rem;
-  top: 1.2rem;
+  font-size: 1.5rem;
+  top: 1rem;
   position: relative;
+  left: 0.1rem;
+  display:block;
+  transform: rotate(90deg);
 }
 
 @keyframes size-up {

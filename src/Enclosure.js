@@ -28,6 +28,9 @@ class Enclosure{
     } else if(animalType == 'Krokodyl amerykanski'){
       self.addAnimalType(animalType);
       this.animals.push(new AmericanCrocodile(animalName));
+    } else if(animalType == 'Lemur'){
+      self.addAnimalType(animalType);
+      this.animals.push(new Lemur(animalName));
     }
 
   }
