@@ -45,18 +45,22 @@ class App{
 
         var animalNameData = array.reverse()[this.key].value;
 
-        var select = document.querySelectorAll("select");
+        if(animalNameData != null && animalNameData != ''){
+          var select = document.querySelectorAll("select");
 
-        array = [];
-        for(var i=0; i < select.length; i++){
-          array.push(select[i]);
+          array = [];
+          for(var i=0; i < select.length; i++){
+            array.push(select[i]);
+          }
+
+          var animalTypeData = array.reverse()[this.key].value;
+
+          enclosures[this.key].addAnimal(animalTypeData, animalNameData);
+
+          self.render();
         }
 
-        var animalTypeData = array.reverse()[this.key].value;
 
-        enclosures[this.key].addAnimal(animalTypeData, animalNameData);
-
-        self.render();
 
       });
 
