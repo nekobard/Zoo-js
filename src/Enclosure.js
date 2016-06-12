@@ -14,7 +14,8 @@ class Enclosure{
   }
 
   addAnimalType(animalType){
-    if(!this.animalTypes.indexOf(animalType) > -1){
+    console.log(animalType);
+    if(this.animalTypes.indexOf(animalType) == -1){
       this.animalTypes.push(animalType);
     }
   }
