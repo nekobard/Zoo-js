@@ -57,4 +57,33 @@ class Enclosure{
       popup.appendChild(info);
     })
   }
+
+  getAnimalsInfo(){
+    var popup = document.getElementById('info-popup');
+    popup.style.display = 'block';
+
+    var popup = document.getElementById('info-list');
+
+    while (popup.firstChild) {
+        popup.removeChild(popup.firstChild);
+    }
+
+    this.animals.forEach(function(animal){
+
+      var iAnimalName = document.createElement("H3");
+      var iAnimalNameText = document.createTextNode(animal.getName());
+      iAnimalName.appendChild(iAnimalNameText);
+      popup.appendChild(iAnimalName);
+
+      var doingArray = [];
+      doingArray = animal.getInfo();
+      doingArray.forEach(function(aInfo){
+        var info = document.createElement("P");
+        var infoText = document.createTextNode(aInfo);
+        info.appendChild(infoText);
+        popup.appendChild(info);
+      });
+      
+    })
+  }
 }

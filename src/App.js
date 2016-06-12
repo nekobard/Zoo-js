@@ -33,7 +33,7 @@ class App{
       newAnimalDiv.appendChild(selectType);
       var newAnimalButton = document.createElement("BUTTON");
       newAnimalButton.className = 'button-enclosure';
-      newAnimalButton.textContent = 'Dodaj zwierze';
+      newAnimalButton.textContent = 'Dodaj';
       newAnimalButton.key = encIndex;
       newAnimalButton.addEventListener('click', function(){
         var input = document.querySelectorAll(".input-enclosure-animal");
@@ -75,12 +75,21 @@ class App{
 
       var stateButton = document.createElement("BUTTON");
       stateButton.className = 'button-state';
-      stateButton.textContent = 'Stan zwierząt';
+      stateButton.textContent = 'Stan';
       stateButton.key = encIndex;
       stateButton.addEventListener('click', function(){
         enclosures[this.key].getAnimalsState();
       });
       newAnimalDiv.appendChild(stateButton);
+
+      var doingButton = document.createElement("BUTTON");
+      doingButton.className = 'button-doing';
+      doingButton.textContent = 'Co robią';
+      doingButton.key = encIndex;
+      doingButton.addEventListener('click', function(){
+        enclosures[this.key].getAnimalsInfo();
+      });
+      newAnimalDiv.appendChild(doingButton);
 
 
       enclosure.animals.forEach(function(animal, index){
