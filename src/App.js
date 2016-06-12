@@ -31,9 +31,13 @@ class App{
       var typeThree = document.createElement("OPTION");
       typeThree.value = 'Lemur';
       typeThree.textContent = 'Lemur';
+      var typeFourth = document.createElement("OPTION");
+      typeFourth.value = 'Krokodyl nilowy alfa';
+      typeFourth.textContent = 'Krokodyl nilowy alfa';
       selectType.appendChild(typeOne);
       selectType.appendChild(typeTwo);
       selectType.appendChild(typeThree);
+      selectType.appendChild(typeFourth);
       newAnimalDiv.appendChild(selectType);
       var newAnimalButton = document.createElement("BUTTON");
       newAnimalButton.className = 'button-enclosure';
@@ -123,6 +127,8 @@ class App{
           img.src = 'img/krokodyl-amerykanski.jpg';
         } else if(animal.getAnimalType() == 'Lemur'){
           img.src = 'img/lemur.jpg';
+        } else if(animal.getAnimalType() == 'Krokodyl nilowy alfa'){
+          img.src = 'img/krokodyl-alfa.jpg';
         }
 
 

@@ -31,6 +31,9 @@ class Enclosure{
     } else if(animalType == 'Lemur'){
       self.addAnimalType(animalType);
       this.animals.push(new Lemur(animalName));
+    } else if(animalType == 'Krokodyl nilowy alfa'){
+      self.addAnimalType(animalType);
+      this.animals.push(new NileCrocodileAlpha(animalName));
     }
 
   }
