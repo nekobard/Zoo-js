@@ -91,6 +91,15 @@ class App{
       });
       newAnimalDiv.appendChild(doingButton);
 
+      var amountButton = document.createElement("BUTTON");
+      amountButton.className = 'button-amount';
+      amountButton.textContent = 'Ile';
+      amountButton.key = encIndex;
+      amountButton.addEventListener('click', function(){
+        enclosures[this.key].getAnimalsAmount();
+      });
+      newAnimalDiv.appendChild(amountButton);
+
 
       enclosure.animals.forEach(function(animal, index){
         var animalRow = document.createElement("DIV");

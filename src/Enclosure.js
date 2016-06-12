@@ -2,6 +2,7 @@ class Enclosure{
   constructor(name){
     this.setName(name);
     this.animals = [];
+    this.animalTypes = [];
   }
 
   setName(name){
@@ -12,11 +13,19 @@ class Enclosure{
     return this.name;
   }
 
-  addAnimal(animalType, animalName){
+  addAnimalType(animalType){
+    if(!this.animalTypes.indexOf(animalType) > -1){
+      this.animalTypes.push(animalType);
+    }
+  }
 
+  addAnimal(animalType, animalName){
+    var self = this;
     if(animalType == 'Krokodyl nilowy'){
+      self.addAnimalType(animalType);
       this.animals.push(new NileCrocodile(animalName));
     } else if(animalType == 'Krokodyl amerykanski'){
+      self.addAnimalType(animalType);
       this.animals.push(new AmericanCrocodile(animalName));
     }
 
@@ -83,7 +92,37 @@ class Enclosure{
         info.appendChild(infoText);
         popup.appendChild(info);
       });
-      
+
     })
+  }
+
+  getAnimalsAmount(){
+    var self = this;
+    var popup = document.getElementById('info-popup');
+    popup.style.display = 'block';
+
+    var popup = document.getElementById('info-list');
+
+    while (popup.firstChild) {
+        popup.removeChild(popup.firstChild);
+    }
+
+    var animalsAmount = document.createElement("H3");
+    var animalsAmountText = document.createTextNode("Ilośc zwierząt: " + self.animals.length);
+    animalsAmount.appendChild(animalsAmountText);
+    popup.appendChild(animalsAmount);
+    self.animalTypes.forEach(function(aType){
+      var animalsCount = 0;
+      self.animals.forEach(function(animal){
+        if(animal.getAnimalType() == aType){
+          animalsCount++;
+        }
+      });
+
+      var info = document.createElement("P");
+      var infoText = document.createTextNode(aType + ": " + animalsCount);
+      info.appendChild(infoText);
+      popup.appendChild(info);
+    });
   }
 }

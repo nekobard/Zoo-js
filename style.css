@@ -334,3 +334,23 @@ body{
 .button-doing:hover{
   background:rgb(69, 163, 143);
 }
+
+.button-amount{
+  border: none;
+  background:rgb(242, 108, 124);
+  color: white;
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  height: 100%;
+  font-size: 0.5rem;
+  cursor: pointer;
+  margin-right: 0.5rem
+}
+
+.button-amount:focus{
+  outline: none;
+}
+
+.button-amount:hover{
+  background:rgb(200, 84, 98);
+}

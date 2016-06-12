@@ -39,10 +39,11 @@
 
     enclosures.push(new Enclosure("Krokodyle"));
 
-    enclosures[0].animals.push(new NileCrocodile("Heniek"));
-    enclosures[0].animals.push(new AmericanCrocodile("Czesiek"));
-    enclosures[0].animals.push(new NileCrocodile("Basia"));
-    enclosures[0].animals.push(new AmericanCrocodile("Horacy"));
+    enclosures[0].addAnimal('Krokodyl amerykanski', 'Benek');
+    enclosures[0].addAnimal('Krokodyl nilowy', 'Kasia');
+    enclosures[0].addAnimal('Krokodyl amerykanski', 'Basia');
+    enclosures[0].addAnimal('Krokodyl nilowy', 'Eryk');
+
 
     var app = new App();
     app.render();
