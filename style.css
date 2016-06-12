@@ -215,13 +215,16 @@ body{
 .info-popup > div{
   background: rgba(255, 255, 255, 1);
   position: relative;
-  width: 14rem;
+  width: 12rem;
+  height: 16rem;
   border-radius: 10px;
   left: 50%;
   top: 10rem;
   margin-left: -7rem;
   z-index: 10000;
   padding: 1rem;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .info-popup > div > p{
@@ -281,6 +284,7 @@ body{
   height: 100%;
   font-size: 0.5rem;
   cursor: pointer;
+  margin-right: 0.5rem
 }
 
 .button-feed:focus{
@@ -289,4 +293,24 @@ body{
 
 .button-feed:hover{
   background:rgb(203, 170, 33);
+}
+
+.button-state{
+  border: none;
+  background:rgb(106, 200, 87);
+  color: white;
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  height: 100%;
+  font-size: 0.5rem;
+  cursor: pointer;
+  margin-right: 0.5rem
+}
+
+.button-state:focus{
+  outline: none;
+}
+
+.button-state:hover{
+  background:rgb(84, 163, 68);
 }

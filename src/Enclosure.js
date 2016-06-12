@@ -28,4 +28,33 @@ class Enclosure{
       animal.setHungry(false);
     })
   }
+
+  getAnimalsState(){
+    var popup = document.getElementById('info-popup');
+    popup.style.display = 'block';
+
+    var popup = document.getElementById('info-list');
+
+    while (popup.firstChild) {
+        popup.removeChild(popup.firstChild);
+    }
+
+    this.animals.forEach(function(animal){
+
+      var iAnimalName = document.createElement("H3");
+      var iAnimalNameText = document.createTextNode(animal.getName());
+      iAnimalName.appendChild(iAnimalNameText);
+      popup.appendChild(iAnimalName);
+
+      var info = document.createElement("P");
+      if(animal.isThirsty() && animal.isHungry()){
+        var infoText = document.createTextNode("Jest głodny i spragniony");
+        info.appendChild(infoText);
+      } else{
+        var infoText = document.createTextNode("Najedzony i napity");
+        info.appendChild(infoText);
+      }
+      popup.appendChild(info);
+    })
+  }
 }

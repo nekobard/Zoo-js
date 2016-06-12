@@ -65,7 +65,7 @@ class App{
 
       var feedButton = document.createElement("BUTTON");
       feedButton.className = 'button-feed';
-      feedButton.textContent = 'Nakarm zwierzęta';
+      feedButton.textContent = 'Nakarm';
       feedButton.key = encIndex;
       feedButton.addEventListener('click', function(){
         enclosures[this.key].feedAnimals();
@@ -73,6 +73,14 @@ class App{
       });
       newAnimalDiv.appendChild(feedButton);
 
+      var stateButton = document.createElement("BUTTON");
+      stateButton.className = 'button-state';
+      stateButton.textContent = 'Stan zwierząt';
+      stateButton.key = encIndex;
+      stateButton.addEventListener('click', function(){
+        enclosures[this.key].getAnimalsState();
+      });
+      newAnimalDiv.appendChild(stateButton);
 
 
       enclosure.animals.forEach(function(animal, index){
