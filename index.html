@@ -38,18 +38,22 @@
 
     <script>
 
+
+
+
     var enclosures = [];
 
-    enclosures.push(new Enclosure("Krokodyle"));
+    /*enclosures.push(new Enclosure("Krokodyle"));
 
     enclosures[0].addAnimal('Krokodyl amerykanski', 'Benek');
     enclosures[0].addAnimal('Krokodyl nilowy', 'Kasia');
     enclosures[0].addAnimal('Krokodyl amerykanski', 'Basia');
-    enclosures[0].addAnimal('Krokodyl nilowy', 'Eryk');
-
+    enclosures[0].addAnimal('Krokodyl nilowy', 'Eryk');*/
 
     var app = new App();
-    app.render();
+    //app.save();
+    app.load();
+    //app.render();
 
     var newEnclosureButton = document.getElementById('newEnclosure');
     newEnclosureButton.addEventListener('click', function(){
@@ -57,6 +61,7 @@
       if(enclosureInput.value !== '' && enclosureInput.value !== null){
         enclosures.push(new Enclosure(enclosureInput.value));
         app.render();
+        app.save();
         enclosureInput.value = '';
       }
     });

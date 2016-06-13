@@ -1,3 +1,6 @@
+var fs = require('fs');
+var jsonfile = require('jsonfile');
+
 class App{
   render(){
     var self = this;
@@ -66,6 +69,7 @@ class App{
           enclosures[this.key].addAnimal(animalTypeData, animalNameData);
 
           self.render();
+          self.save();
         }
 
 
@@ -82,6 +86,7 @@ class App{
       feedButton.addEventListener('click', function(){
         enclosures[this.key].feedAnimals();
         self.render();
+        self.save();
       });
       newAnimalDiv.appendChild(feedButton);
 
@@ -205,7 +210,73 @@ class App{
     });
   }
 
-  wypisz(){
-    console.log("Hello")
+  save(){
+    var file = 'data2.json'
+    jsonfile.writeFile(file, enclosures, function (err) {
+      if(err){
+        console.log(err)
+      }
+
+    })
+  }
+
+  load(){
+    var self = this;
+    /*fs.readFile('data.json', (err, data) => {
+      if (err) throw err;
+      enclosures = JSON.parse(data);
+    });*/
+    var file = 'data2.json';
+    var array = [];
+    jsonfile.readFile(file, function(err, obj) {
+      array = obj;
+      array.forEach(function(item, index){
+        enclosures.push(new Enclosure(item.name));
+        item.animals.forEach(function(animal, aIndex){
+          if(animal.animalType == "Krokodyl nilowy"){
+            enclosures[index].addAnimal(animal.animalType, animal.name);
+            if(!animal.thirsty){
+              enclosures[index].animals[aIndex].setThirsty(false);
+            }
+            if(!animal.hungry){
+              enclosures[index].animals[aIndex].setHungry(false);
+            }
+          }
+          if(animal.animalType == "Krokodyl amerykanski"){
+            enclosures[index].addAnimal(animal.animalType, animal.name);
+            if(!animal.thirsty){
+              enclosures[index].animals[aIndex].setThirsty(false);
+            }
+            if(!animal.hungry){
+              enclosures[index].animals[aIndex].setHungry(false);
+            }
+          }
+          if(animal.animalType == "Krokodyl nilowy alfa"){
+            enclosures[index].addAnimal(animal.animalType, animal.name);
+            if(!animal.thirsty){
+              enclosures[index].animals[aIndex].setThirsty(false);
+            }
+            if(!animal.hungry){
+              enclosures[index].animals[aIndex].setHungry(false);
+            }
+          }
+
+          if(animal.animalType == "Lemur"){
+            enclosures[index].addAnimal(animal.animalType, animal.name);
+            if(!animal.thirsty){
+              enclosures[index].animals[aIndex].setThirsty(false);
+            }
+            if(!animal.hungry){
+              enclosures[index].animals[aIndex].setHungry(false);
+            }
+          }
+        })
+      });
+
+      self.render();
+    })
+
+
+
   }
 }
